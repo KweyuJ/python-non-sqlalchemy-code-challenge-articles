@@ -13,6 +13,8 @@ class Article:
 
     @title.setter
     def title(self, value):
+        if hasattr(self, '_title'):
+            raise AttributeError("Title is immutable and cannot be changed.")
         if not isinstance(value, str) or not (5 <= len(value) <= 50):
             raise ValueError("Title must be a string between 5 and 50 characters.")
         self._title = value
@@ -24,7 +26,7 @@ class Article:
     @author.setter
     def author(self, value):
         if not isinstance(value, Author):
-            raise TypeError("author must be an instance of Author")
+            raise TypeError("Author must be an instance of Author.")
         self._author = value
 
     @property
@@ -34,7 +36,7 @@ class Article:
     @magazine.setter
     def magazine(self, value):
         if not isinstance(value, Magazine):
-            raise TypeError("magazine must be an instance of Magazine")
+            raise TypeError("Magazine must be an instance of Magazine.")
         self._magazine = value
 
 
@@ -48,6 +50,8 @@ class Author:
 
     @name.setter
     def name(self, value):
+        if hasattr(self, '_name'):
+            raise AttributeError("Name is immutable and cannot be changed.")
         if not isinstance(value, str) or len(value) == 0:
             raise ValueError("Name must be a non-empty string.")
         self._name = value
@@ -103,12 +107,12 @@ class Magazine:
 
     def article_titles(self):
         if not self.articles():
-            return []
+            return None
         return [article.title for article in self.articles()]
 
     def contributing_authors(self):
         authors = [article.author for article in self.articles()]
-        return [author for author in set(authors) if authors.count(author) > 2]
+        return [author for author in set(authors) if authors.count(author) > 2] or None
 
     @classmethod
     def top_publisher(cls):
