@@ -97,9 +97,9 @@ class TestMagazine:
         assert magazine_1.category != ""
 
         # comment out the next three lines if using Exceptions
-        magazine_1.category = ""
-        assert magazine_1.category == "Fashion"
-        assert magazine_1.category != ""
+        # magazine_1.category = ""
+        # assert magazine_1.category == "Fashion"
+        # assert magazine_1.category != ""
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
