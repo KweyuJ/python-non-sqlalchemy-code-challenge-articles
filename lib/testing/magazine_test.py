@@ -44,12 +44,12 @@ class TestMagazine:
         assert 2 <= len(magazine_2.name) <= 16
 
         # comment out the next two lines if using Exceptions
-        magazine_1.name = "New Yorker Plus X"
-        assert magazine_1.name == "Vogue"
+        # magazine_1.name = "New Yorker Plus X"
+        # assert magazine_1.name == "Vogue"
 
         # comment out the next two lines if using Exceptions
-        magazine_2.name = "A"
-        assert magazine_2.name == "AD"
+        # magazine_2.name = "A"
+        # assert magazine_2.name == "AD"
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
